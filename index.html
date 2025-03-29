@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelance Manager - Gérez votre carrière</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="shortcut icon" href="img/LogoHackaton.png" type="image/x-icon">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navigation">
+            <div class="logo">
+                <img src="img/LogoHackaton.png" alt="Logo Freelance Manager">
+                <h1>Freelance Manager</h1>
+            </div>
+            <div class="NavLinks">
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#a-propos">À propos</a></li>
+                    <li><a href="#contributions">Contributions</a></li>
+                    <li><a href="#avis">Avis</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <img src="img/menuHamburger.png" alt="Menu Hamburger" class="Menu-Hamburger">
+            <div class="actions">
+                <a href="php/choixConnexion.php"><button class="action-btn">Connexion</button></a>
+                <a href="php/choixInscription.php"><button class="action-btn">Inscription</button></a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="hero active" id="accueil">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/img1.jpg" class="d-block w-100" alt="Image d'accueil">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/img2.jpg" class="d-block w-100" alt="Image de présentation">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/1.jpeg" class="d-block w-100" alt="Image de contact">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Précédent</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Suivant</span>
+                </a>
+            </div>
+            <div class="hero-content">
+                <h1>Freelance Manager - Gérez votre carrière, simplement.</h1>
+                <p>La plateforme pensée pour les freelances qui veulent optimiser leur activité au quotidien.</p>
+                <div class="hero-buttons">
+                    <button class="hero-btn">Démarrer</button>
+                    <button class="hero-btn">Plus d'infos</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="container-fluid">
+        <section id="a-propos" class="section">
+            <div class="container">
+                <h2>À propos de Freelance Manager</h2>
+                <p>Freelance Manager, c'est avant tout une initiative née de la volonté d'aider les freelances à mieux gérer leur activité. Nous proposons des solutions innovantes et adaptées pour simplifier la gestion de vos projets, de votre facturation et de votre relation client.</p>
+                <p>Notre mission ? Vous fournir une plateforme complète et intuitive qui vous permet de vous concentrer sur votre cœur de métier : votre travail.</p>
+                <p>Nous croyons en l'autonomie et l'efficacité, et nous nous engageons à vous fournir les outils nécessaires pour réussir dans votre carrière de freelance. Ensemble, construisons l'avenir du freelancing.</p>
+            </div>
+        </section>
+
+        <section id="contributions" class="section">
+            <div class="container">
+                <h2>Contribuez à Freelance Manager</h2>
+                <p>Votre contribution est essentielle pour améliorer Freelance Manager. Partagez vos idées, signalez des bugs et participez à nos projets.</p>
+                <p>Rejoignez notre communauté de développeurs et de freelances pour collaborer et innover.</p>
+                <a href="https://wa.me/672760700" class="btn btn-success" target="_blank">Rejoignez-nous sur WhatsApp</a>
+            </div>
+        </section>
+
+        <section id="avis" class="section">
+            <div class="container">
+                <h2>Ce que nos utilisateurs en disent</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">"Freelance Manager a vraiment changé ma façon de gérer mes projets. Gain de temps et concentration sur mon travail, que demander de plus ?"</p>
+                            <footer class="blockquote-footer">Mr Dior, Développeur Web</footer>
+                        </blockquote>
+                    </div>
+                    <div class="col-md-6">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">"Plateforme intuitive et complète, la gestion de la facturation est un vrai plus ! Je recommande sans hésiter."</p>
+                            <footer class="blockquote-footer">Kag Angel, Graphiste</footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Contactez-nous</h2>
+                <p>Une question ? Une suggestion ? N'hésitez pas à nous contacter :</p>
+                <p>Email : hackaton@freelancemanager.com</p>
+                <p>Téléphone : 672-76-07-00</p>
+                <form>
+                    <div class="form-group">
+                        <label for="nom">Nom</label>
+                        <input type="text" class="form-control" id="nom">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" id="message" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <div class="progressBar"></div>
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

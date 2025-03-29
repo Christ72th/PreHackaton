@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #0e0e0e;
+      }
+
+      .cls-2 {
+        fill-rule: evenodd;
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="33.484" y1="62.813" x2="33.484" y2="3.219" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6717cd"/>
+      <stop offset="1" stop-color="#2871fa"/>
+    </linearGradient>
+  </defs>
+  <image id="Arrière-plan" width="64" height="64" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAqUlEQVR4nO3QgQ0AMQyDwHz33zmvTgFSuQmwv93dedh5efzVAYIGVAcIGlAdIGhAdYCgAdUBggZUBwgaUB0gaEB1gKAB1QGCBlQHCBpQHSBoQHWAoAHVAYIGVAcIGlAdIGhAdYCgAdUBggZUBwgaUB0gaEB1gKAB1QGCBlQHCBpQHSBoQHWAoAHVAYIGVAcIGlAdIGhAdYCgAdUBggZUBwgaUB0gaODMzA9VOgR8F5U4SQAAAABJRU5ErkJggg=="/>
+  <rect class="cls-1" y="-1" width="64" height="65"/>
+  <path id="Forme_152_1" data-name="Forme 152 1" class="cls-2" d="M63.342,33.946L33.49,10.787,3.637,33.946,0,29.2,17.117,15.923V3.221H23.8v7.52l9.693-7.52L66.981,29.2Zm-5.8-.888V62.826H49.06V38.443H38.229V62.826H9.435V33.058l24.055-18.6ZM32.136,38.639H15.457v14.18H32.136V38.639Z"/>
+</svg>

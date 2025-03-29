@@ -1,0 +1,8 @@
+SET @age = 0;
+CALL Age_etudiant(Matricule,@age);
+SELECT @age AS Age;
+
+CURSOR Ajout_Champ_Age IS
+
+INSERT INTO etudiant(Age)
+VALUES (@age);

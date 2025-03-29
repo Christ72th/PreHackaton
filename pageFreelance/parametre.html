@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paramètres - Freelance Manager</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="shortcut icon" href="../img/LogoHackaton.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+ 
+</head>
+<body>
+    <header class="header">
+        <nav class="navigation">
+            <div class="logo">
+                <img src="../img/LogoHackaton.png" alt="Logo Freelance Manager">
+                <h1>Freelance Manager</h1>
+            </div>
+            <div class="NavLinks">
+                <ul>
+                    <li><a href="Accueil.php">Tableau de Bord</a></li>
+                    <li><a href="projets.html">Projets</a></li>
+                    <li><a href="#" id="parametresBtn">Paramètres</a></li>
+                    <li><a href="../deconnexion.php">Déconnexion</a></li>
+                </ul>
+            </div>
+            <img src="../img/menuHamburger.png" alt="Menu Hamburger" class="Menu-Hamburger">
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container settings-container">
+            <h2 class="settings-header">Paramètres</h2>
+
+            <ul class="nav nav-tabs" id="settingsTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">
+                        <i class="fas fa-user-edit"></i> Modifier le profil
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="notifications-tab" data-toggle="tab" href="#notifications" role="tab" aria-controls="notifications" aria-selected="false">
+                        <i class="fas fa-bell"></i> Notifications
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="security-tab" data-toggle="tab" href="#security" role="tab" aria-controls="security" aria-selected="false">
+                        <i class="fas fa-shield-alt"></i> Sécurité
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="cv-tab" data-toggle="tab" href="#cv" role="tab" aria-controls="cv" aria-selected="false">
+                        <i class="fas fa-file-alt"></i> Ajouter/Modifier CV
+                    </a>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="settingsTabsContent">
+                <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <form id="edit-profile-form" action="#" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="nom">Nom d'utilisateur:</label>
+                            <input type="text" class="form-control" id="nom" name="nom" value="" required>
+                            <div id="nom-error" class="text-danger"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" value="" required>
+                            <div id="email-error" class="text-danger"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone">Téléphone:</label>
+                            <input type="tel" class="form-control" id="telephone" name="telephone" value="" required>
+                            <div id="telephone-error" class="text-danger"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="localisation">Localisation:</label>
+                            <input type="text" class="form-control" id="localisation" name="localisation" value="" required>
+                            <div id="localisation-error" class="text-danger"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="domaineCompetence">Domaine de compétence:</label>
+                            <input type="text" class="form-control" id="domaineCompetence" name="domaineCompetence" value="" required>
+                            <div id="domaineCompetence-error" class="text-danger"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                            <textarea class="form-control" id="description" name="description" rows="5" required></textarea>
+                            <div id="description-error" class="text-danger"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="photo">Photo de profil:</label>
+                            <input type="file" class="form-control" id="photo" name="photo" accept="image/*">
+                            <div id="photo-error" class="text-danger"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Enregistrer les modifications
+                        </button>
+                        <a href="profil.html" class="btn cancel-btn">Annuler</a>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="notifications" role="tabpanel" aria-labelledby="notifications-tab">
+                    <form id="notifications-form" action="#" method="post">
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="email_notifications" checked>
+                                Recevoir les notifications par email
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="push_notifications">
+                                Recevoir les notifications push
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>Fréquence des notifications :</label>
+                            <select class="form-control" name="notification_frequency">
+                                <option value="immediate">Immédiate</option>
+                                <option value="daily">Quotidienne</option>
+                                <option value="weekly">Hebdomadaire</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Enregistrer les modifications
+                        </button>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
+                    <form id="security-form"  action="#" method="post">
+                        <div class="form-group">
+                            <label for="current_password">Mot de passe actuel:</label>
+                            <input type="password" class="form-control" id="current_password" name="current_password" required>
+                            <div id="current_password_error" class="text-danger"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="new_password">Nouveau mot de passe:</label>
+                            <input type="password" class="form-control" id="new_password" name="new_password" required>
+                            <div id="new_password_error" class="text-danger"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm_new_password">Confirmer le nouveau mot de passe:</label>
+                            <input type="password" class="form-control" id="confirm_new_password" name="confirm_new_password" required>
+                            <div id="confirm_new_password_error" class="text-danger"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="two_factor_auth">
+                                Activer l'authentification à deux facteurs
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Enregistrer les modifications
+                        </button>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="cv" role="tabpanel" aria-labelledby="cv-tab">
+                    <form id="cv-form" action="#" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="cv_file">Fichier CV:</label>
+                            <input type="file" class="form-control" id="cv_file" name="cv_file" accept=".pdf,.doc,.docx" required>
+                            <div id="cv_file_error" class="text-danger"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cv_description">Description du CV:</label>
+                            <textarea class="form-control" id="cv_description" name="cv_description" rows="3" placeholder="Ajouter une courte description de votre CV (par exemple, compétences clés, expérience)" required></textarea>
+                            <div id="cv_description_error" class="text-danger"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-upload"></i> Télécharger/Modifier CV
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="parametresModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Paramètres</h2>
+                <ul>
+                    <li><a href="#profile" data-toggle="tab"><i class="fas fa-user-edit"></i> Modifier le profil</a></li>
+                    <li><a href="#notifications" data-toggle="tab"><i class="fas fa-bell"></i> Notifications</a></li>
+                    <li><a href="#security" data-toggle="tab"><i class="fas fa-shield-alt"></i> Sécurité</a></li>
+                    <li><a href="#cv" data-toggle="tab"><i class="fas fa-file-alt"></i> Ajouter/Modifier CV</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script src="../script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        var modal = document.getElementById("parametresModal");
+        var btn = document.getElementById("parametresBtn");
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        $(document).ready(function() {
+            $("#edit-profile-form").submit(function(event) {
+                let formIsValid = true;
+                $(".text-danger").html("");
+                $("input").removeClass("is-invalid");
+                $("textarea").removeClass("is-invalid");
+
+                const nom = $("#nom").val().trim();
+                if (nom === "") {
+                    $("#nom-error").html("Veuillez entrer votre nom.");
+                    $("#nom").addClass("is-invalid");
+                    formIsValid = false;
+                }
+
+                const email = $("#email").val().trim();
+                const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+                if (email === "") {
+                    $("#email-error").html("Veuillez entrer votre email.");
+                    $("#email").addClass("is-invalid");
+                    formIsValid = false;
+                } else if (!emailRegex.test(email)) {
+                    $("#email-error").html("Veuillez entrer un email valide.");
+                    $("#email").addClass("is-invalid");
+                    formIsValid = false;
+                }
+
+                const telephone = $("#telephone").val().trim();
+                const telephoneRegex = /^\+?[0-9]{10,}$/;
+                if (telephone === "") {
+                    $("#telephone-error").html("Veuillez entrer votre numéro de téléphone.");
+                    $("#telephone").addClass("is-invalid");
+                    formIsValid = false;
+                } else if (!telephoneRegex.test(telephone)) {
+                    $("#telephone-error").html("Veuillez entrer un numéro de téléphone valide.");
+                    $("#telephone").addClass("is-invalid");
+                    formIsValid = false;
+                }
+
+                const localisation = $("#localisation").val().trim();
+                if (localisation === "") {
+                    $("#localisation-error").html("Veuillez entrer votre localisation.");
+                    $("#localisation").addClass("is-invalid");
+                    formIsValid = false;
+                }
+                const domaineCompetence = $("#domaineCompetence").val().trim();
+                if (domaineCompetence === "") {
+                    $("#domaineCompetence-error").html("Veuillez entrer votre domaine de compétence.");
+                    $("#domaineCompetence").addClass("is-invalid");
+                    formIsValid = false;
+                }
+
+                const description = $("#description").val().trim();
+                if (description === "") {
+                    $("#description-error").html("Veuillez entrer une description.");
+                    $("#description").addClass("is-invalid");
+                    formIsValid = false;
+                }
+
+                if (!formIsValid) {
+                    event.preventDefault(); 
+                }
+            });
+            $("#notifications-form").submit(function(event) {
+                event.preventDefault();
+                alert("Paramètres de notifications enregistrés !");
+            });
+
+            $("#security-form").submit(function(event) {
+                let formIsValid = true;
+                $(".text-danger").html("");
+                $("input").removeClass("is-invalid");
+
+                const currentPassword = $("#current_password").val().trim();
+                const newPassword = $("#new_password").val().trim();
+                const confirmNewPassword = $("#confirm_new_password").val().trim();
+
+                if (currentPassword === "") {
+                    $("#current_password_error").html("Veuillez entrer votre mot de passe actuel.");
+                    $("#current_password").addClass("is-invalid");
+                    formIsValid = false;
+                }
+                if (newPassword === "") {
+                    $("#new_password_error").html("Veuillez entrer votre nouveau mot de passe.");
+                    $("#new_password").addClass("is-invalid");
+                    formIsValid = false;
+                } else if (newPassword.length < 8) {
+                    $("#new_password_error").html("Le mot de passe doit contenir au moins 8 caractères.");
+                    $("#new_password").addClass("is-invalid");
+                    formIsValid = false;
+                }
+
+                if (confirmNewPassword === "") {
+                    $("#confirm_new_password_error").html("Veuillez confirmer votre nouveau mot de passe.");
+                    $("#confirm_new_password").addClass("is-invalid");
+                    formIsValid = false;
+                } else if (newPassword !== confirmNewPassword) {
+                    $("#confirm_new_password_error").html("Les mots de passe ne correspondent pas.");
+                    $("#confirm_new_password").addClass("is-invalid");
+                    formIsValid = false;
+                }
+
+                if (!formIsValid) {
+                    event.preventDefault();
+                } else {
+                    event.preventDefault();
+                    alert("Paramètres de sécurité enregistrés !");
+
+                }
+            });
+
+            $("#cv-form").submit(function(event) {
+                event.preventDefault();
+                let formIsValid = true;
+                $(".text-danger").html("");
+                $("input").removeClass("is-invalid");
+                $("textarea").removeClass("is-invalid");
+
+                const cvFile = $("#cv_file").val().trim();
+                const cvDescription = $("#cv_description").val().trim();
+
+                if (cvFile === "") {
+                    $("#cv_file_error").html("Veuillez sélectionner un fichier CV.");
+                    $("#cv_file").addClass("is-invalid");
+                    formIsValid = false;
+                }
+                if (cvDescription === "") {
+                    $("#cv_description_error").html("Veuillez entrer une description pour votre CV.");
+                    $("#cv_description").addClass("is-invalid");
+                    formIsValid = false;
+                }
+                if (!formIsValid) {
+                    event.preventDefault();
+                } else {
+                    event.preventDefault();
+                    alert("CV téléchargé/modifié avec succès !");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

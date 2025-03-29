@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #0e0e0e;
+      }
+
+      .cls-2 {
+        fill-rule: evenodd;
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="32" y1="53.75" x2="32" y2="8.438" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6717cd"/>
+      <stop offset="1" stop-color="#2871fa"/>
+    </linearGradient>
+  </defs>
+  <image id="Arrière-plan" width="64" height="64" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAqUlEQVR4nO3QgQ0AMQyDwHz33zmvTgFSuQmwv93dedh5efzVAYIGVAcIGlAdIGhAdYCgAdUBggZUBwgaUB0gaEB1gKAB1QGCBlQHCBpQHSBoQHWAoAHVAYIGVAcIGlAdIGhAdYCgAdUBggZUBwgaUB0gaEB1gKAB1QGCBlQHCBpQHSBoQHWAoAHVAYIGVAcIGlAdIGhAdYCgAdUBggZUBwgaUB0gaODMzA9VOgR8F5U4SQAAAABJRU5ErkJggg=="/>
+  <rect class="cls-1" width="64" height="64"/>
+  <path id="Bulle_de_dialogue_3_1" data-name="Bulle de dialogue 3 1" class="cls-2" d="M56.1,21.155C60.336,12.6,39.75,4.524,35.092,13.268c-2.847-7.334-21.451-5.929-19.758,1.6C9.157,10.122-2.552,18.035,2.491,26.393-2.626,31.277,3.9,45,13.014,41.15c2.763,9.136,19.158,8.8,23.245,5.5,2.293,3.137,1.019,4.981-2.386,7.109,5.247,0.283,7.885-2.224,10.634-6.887,5.977-.1,13.02-2.7,12.165-8.657C66.117,38.465,65.079,20.425,56.1,21.155Z"/>
+</svg>

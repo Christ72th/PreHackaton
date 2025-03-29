@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depot de projet en 3 étapes - FLM</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="shortcut icon" href="../img/LogoHackaton.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .etapes {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 0;
+            list-style: none;
+        }
+        .etapes li {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border-bottom: 2px solid #ddd;
+            cursor: pointer;
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+        }
+        .etapes li.active {
+            color: #007bff;
+            border-bottom-color: #007bff;
+        }
+        .etapes li.done {
+            color: green;
+            border-bottom-color: green;
+        }
+        .contenu-etape {
+            display: none;
+        }
+        .contenu-etape.active {
+            display: block;
+        }
+        .btn-navigation {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .bouton {
+            cursor: pointer;
+        }
+        .file-upload-container {
+            display: flex;
+            align-items: center;
+        }
+        .file-name-display {
+            margin-left: 10px;
+            font-size: 0.9em;
+            color: #fcf9f9;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navigation">
+            <div class="logo">
+                <img src="../img/LogoHackaton.png" alt="Logo Freelance Manager">
+                <h1>Freelance Manager</h1>
+            </div>
+            <div class="NavLinks">
+                <ul>
+                    <li><a href="Accueil.php"><img src="../img/Accueil.svg" alt="." class="icone">Tableau de Bord</a></li>
+                    <li><a href="projets.html">Projets</a></li>
+                    <li><a href="#" id="parametresBtn"><img src="../img/parametre.svg" alt="." class="icone">Paramètres</a></li>
+                    <li><a href="../deconnexion.php"><img src="../img/Deconnexion.svg" alt="." class="icone">Déconnexion</a></li>
+                </ul>
+            </div>
+            <img src="../img/menuHamburger.png" alt="Menu Hamburger" class="Menu-Hamburger">
+        </nav>
+    </header>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Déposer un Projet</h1>
+        <form action="deposer_projet.php" method="post" enctype="multipart/form-data">
+            <ul class="etapes">
+                <li class="active">Informations générales</li>
+                <li>Détails du projet</li>
+                <li>Confidentialité et dépôt</li>
+            </ul>
+            <div class="contenu-etapes">
+                <div class="contenu-etape active" id="etape1">
+                    <fieldset class="mb-4">
+                        <legend>Informations générales</legend>
+                        <div class="mb-3">
+                            <label for="NomProjet" class="form-label">Nom du projet : </label>
+                            <input type="text" id="NomProjet" name="NomProjet" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Description" class="form-label">Description : </label>
+                            <textarea id="Description" name="Description" class="form-control" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="DateDebut" class="form-label">Date de début : </label>
+                            <input type="date" id="DateDebut" name="DateDebut" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Duree" class="form-label">Durée : </label>
+                            <div class="input-group">
+                                <input type="number" id="Duree" name="Duree" class="form-control" min="1" required>
+                                <select id="UniteDuree" name="UniteDuree" class="form-select" required>
+                                    <option value="jours">Jours</option>
+                                    <option value="mois">Mois</option>
+                                    <option value="annees">Années</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="DateFin" class="form-label">Date de fin (calculée) : </label>
+                            <input type="date" id="DateFin" name="DateFin" class="form-control" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Participants" class="form-label">Participants (ou Groupe) : </label>
+                            <input type="text" id="Participants" name="Participants" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Statut" class="form-label">Statut : </label><br>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="Statut" id="StatutDebut" value="Debut" class="form-check-input" required>
+                                <label for="StatutDebut" class="form-check-label">Début</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="Statut" id="StatutEnCours" value="En_cours" class="form-check-input" required>
+                                <label for="StatutEnCours" class="form-check-label">En cours</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="Statut" id="StatutTermine" value="Termine" class="form-check-input" required>
+                                <label for="StatutTermine" class="form-check-label">Terminé</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="contenu-etape" id="etape2">
+                    <fieldset class="mb-4">
+                        <legend>Détails du projet</legend>
+                        <div class="mb-3">
+                            <label for="Budget" class="form-label">Budget estimé (FCFA) : </label>
+                            <input type="number" id="Budget" name="Budget" class="form-control" min="0">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Competences" class="form-label">Compétences requises : </label>
+                            <input type="text" id="Competences" name="Competences" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Technologies" class="form-label">Technologies utilisées : </label>
+                            <input type="text" id="Technologies" name="Technologies" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="LienDepot" class="form-label">Lien dépôt de code source (GitHub, GitLab, etc.) : </label>
+                            <input type="url" id="LienDepot" name="LienDepot" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Ressources" class="form-label">Liens ressources supplémentaires : </label>
+                            <input type="url" id="Ressources" name="Ressources" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Experience" class="form-label">Niveau d'expérience requis : </label>
+                            <select id="Experience" name="Experience" class="form-select">
+                                <option value="debutant">Débutant</option>
+                                <option value="intermediaire">Intermédiaire</option>
+                                <option value="expert">Expert</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Collaboration" class="form-label">Type de collaboration : </label>
+                            <select id="Collaboration" name="Collaboration" class="form-select">
+                                <option value="benevolat">Bénévolat</option>
+                                <option value="remuneration">Rémunération</option>
+                                <option value="partenariat">Partenariat</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="contenu-etape" id="etape3">
+                    <fieldset class="mb-4">
+                        <legend>Confidentialité et dépôt</legend>
+                        <div class="mb-3">
+                            <label for="confidentialite" class="form-label">Type de projet :</label><br>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="confidentialite" id="open_source" value="Open Source" class="form-check-input">
+                                <label for="open_source" class="form-check-label">Open Source</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="confidentialite" id="private" value="Private" class="form-check-input">
+                                <label for="private" class="form-check-label">Private</label>
+                            </div>
+                        </div>
+                        <div id="LicenceDiv" style="display: none;">
+                            <div class="mb-3">
+                                <label for="Licence" class="form-label bouton">Licence</label>
+                                <input type="file" name="Licence" id="Licence" style="display: none;">
+                                <span id="LicenceName" class="file-name-display"></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="FichierProjet" class="form-label bouton">Fichier du Projet (ZIP ou EXE)</label>
+                            <input type="file" name="FichierProjet" id="FichierProjet" style="display: none;" accept=".exe, .zip" required>
+                            <span id="FichierProjetName" class="file-name-display"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ImageProjet" class="form-label bouton">Image de Description du Projet</label>
+                            <input type="file" name="ImageProjet" id="ImageProjet" style="display: none;" accept="image/*" required>
+                            <span id="ImageProjetName" class="file-name-display"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="FichierReadme" class="form-label bouton">Fichier README <span style="color: red;">*</span></label>
+                            <input type="file" name="FichierReadme" id="FichierReadme" style="display: none;" accept=".md, .txt" required>
+                            <span id="FichierReadmeName" class="file-name-display"></span>
+                        </div>
+                    </fieldset>
+                    <button type="submit" name="deposer" id="deposer" class="btn btn-primary">Déposer le projet</button>
+                    <div id="confirmationMessage" class="mt-3" style="display: none;">
+                        <div class="alert alert-success" role="alert">
+                            Le projet a été déposé avec succès !
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-navigation">
+                <button type="button" class="btn btn-secondary" id="precedentBtn" disabled>Précédent</button>
+                <button type="button" class="btn btn-primary" id="suivantBtn">Suivant</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const etapes = document.querySelectorAll('.etapes li');
+        const contenuEtapes = document.querySelectorAll('.contenu-etape');
+        const precedentBtn = document.getElementById('precedentBtn');
+        const suivantBtn = document.getElementById('suivantBtn');
+        const formulaire = document.querySelector('form');
+        let etapeActive = 0;
+        let formulaireValide = true;
+
+        function afficherEtape(etape) {
+            etapes.forEach((e, i) => {
+                e.classList.remove('active');
+                e.classList.remove('done');
+                if (i < etape) {
+                    e.classList.add('done');
+                } else if (i === etape) {
+                    e.classList.add('active');
+                }
+            });
+            contenuEtapes.forEach((c, i) => {
+                c.classList.remove('active');
+                if (i === etape) {
+                    c.classList.add('active');
+                }
+            });
+            if (etape === 0) {
+                precedentBtn.disabled = true;
+                suivantBtn.disabled = false;
+            } else if (etape === etapes.length - 1) {
+                precedentBtn.disabled = false;
+                suivantBtn.disabled = true;
+            } else {
+                precedentBtn.disabled = false;
+                suivantBtn.disabled = false;
+            }
+        }
+
+        function validerEtape(etape) {
+            let valide = true;
+            const champsObligatoires = document.querySelectorAll(`#etape${etape + 1} [required]`);
+            champsObligatoires.forEach(champ => {
+                if (!champ.value) {
+                    valide = false;
+                    champ.classList.add('is-invalid');
+                } else {
+                    champ.classList.remove('is-invalid');
+                }
+            });
+            return valide;
+        }
+
+        function etapeSuivante() {
+            if (validerEtape(etapeActive)) {
+                etapeActive++;
+                afficherEtape(etapeActive);
+            } else {
+                alert('Veuillez remplir tous les champs obligatoires de cette étape.');
+            }
+        }
+
+        function etapePrecedente() {
+            if (etapeActive > 0) {
+                etapeActive--;
+                afficherEtape(etapeActive);
+            }
+        }
+
+        function gererSoumissionFormulaire(event) {
+            event.preventDefault();
+             formulaireValide = true;
+
+            if (validerEtape(etapes.length - 1)) {
+                formulaire.submit();
+                document.getElementById('confirmationMessage').style.display = 'block';
+            } else {
+                 alert('Veuillez remplir tous les champs obligatoires de la dernière étape.');
+            }
+        }
+
+        suivantBtn.addEventListener('click', etapeSuivante);
+        precedentBtn.addEventListener('click', etapePrecedente);
+        formulaire.addEventListener('submit', gererSoumissionFormulaire);
+
+        afficherEtape(etapeActive);
+        document.getElementById('Duree').addEventListener('change', CalculerDateFin);
+        document.getElementById('DateDebut').addEventListener('change', CalculerDateFin);
+
+        const confidentialiteRadio = document.querySelectorAll('input[name="confidentialite"]');
+        const licenceDiv = document.getElementById('LicenceDiv');
+
+        confidentialiteRadio.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.value === 'Private') {
+                    licenceDiv.style.display = 'block';
+                } else {
+                    licenceDiv.style.display = 'none';
+                }
+            });
+        });
+
+        function CalculerDateFin() {
+            const dateDebut = document.getElementById("DateDebut").value;
+            const duree = parseInt(document.getElementById("Duree").value);
+            const uniteDuree = document.getElementById("UniteDuree").value;
+            let dateFin = new Date(dateDebut);
+
+            if (uniteDuree === "jours") {
+                dateFin.setDate(dateFin.getDate() + duree);
+            } else if (uniteDuree === "mois") {
+                dateFin.setMonth(dateFin.getMonth() + duree);
+            } else if (uniteDuree === "annees") {
+                dateFin.setFullYear(dateFin.getFullYear() + duree);
+            }
+
+            const jour = ("0" + dateFin.getDate()).slice(-2);
+            const mois = ("0" + (dateFin.getMonth() + 1)).slice(-2);
+            const annee = dateFin.getFullYear();
+
+            document.getElementById("DateFin").value = annee + "-" + mois + "-" + jour;
+        }
+
+        // Gestion des labels de fichiers
+        const fileInputs = document.querySelectorAll('input[type="file"]');
+        fileInputs.forEach(input => {
+            const label = input.nextElementSibling;
+            const fileNameDisplay = document.getElementById(input.id + 'Name');
+            input.addEventListener('change', function(e) {
+                let fileName = '';
+                if (this.files && this.files.length > 1)
+                    fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
+                else
+                    fileName = e.target.value.split('\\').pop();
+
+                if (fileName) {
+                    label.innerText = 'Fichier choisi :';
+                    fileNameDisplay.innerText = fileName;
+                    fileNameDisplay.style.display = 'inline-block';
+                } else {
+                    label.innerText = 'Choisir un fichier';
+                    fileNameDisplay.innerText = '';
+                    fileNameDisplay.style.display = 'none';
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
