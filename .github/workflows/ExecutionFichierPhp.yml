@@ -1,0 +1,14 @@
+on:
+  push:
+    branches:
+      -main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Chekout code
+        uses: actions/checkout@v2
+      - name: Executer les fichiers php
+        run: |
+          php -S localhost:8000
